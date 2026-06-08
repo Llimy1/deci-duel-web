@@ -51,5 +51,13 @@
 | 2026-06-08 | 차트/실시간 소켓/유저 관리 기능은 1차 범위에서 제외 | 서버 Admin API가 현재 조회 전용 3종뿐이라 SPA 기능도 자연히 read-only로 제한됨. 차트 라이브러리·admin 전용 소켓 채널 도입은 현재 데이터 양/운영 단계 대비 과한 투자, 유저 관리(CUD)는 해당 서버 API 자체가 없고 "서버 API 계약 변경 금지" 제약과 충돌 |
 | 2026-06-08 | `apiRequest` 공통 래퍼에서 401 처리를 콜백 패턴(`setUnauthorizedHandler`)으로 구현 | API 클라이언트(`client.ts`)는 React 외부 모듈이라 직접 컨텍스트/state에 접근 불가. `AuthProvider`가 마운트 시 핸들러를 등록해, 401 발생 시 토큰 클리어 + 로그인 화면 전환을 트리거하도록 역방향 의존성을 주입 |
 
+## 알려진 이슈 / 수정 이력
+- **2026-06-08 (발견 및 즉시 수정)**: `npm run dev`로 첫 실행 시 화면이 완전히 빈 채로 표시되는 버그.
+  콘솔에 `Error: useRoutes() may be used only in the context of a <Router> component.` 예외.
+  원인: `App.tsx`에서 `<AuthProvider><AppRoutes /></AuthProvider>`만 렌더링하고 `<Routes>`를
+  감싸는 `<Router>`(예: `BrowserRouter`)가 없었음 — 빌드/타입체크/린트로는 잡히지 않고
+  런타임에서만 드러나는 종류의 실수. `App.tsx`에 `BrowserRouter`를 최상위로 추가해 해결
+  (commit `de7868a`). 이후 로그인 화면("DeciDuel Admin" / 접속 코드 입력 폼) 정상 렌더 확인.
+
 ## 블로커
 - (없음)
