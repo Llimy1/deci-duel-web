@@ -1,0 +1,15 @@
+{
+  // Cloudflare Workers 정적 자산(Static Assets) 배포 설정.
+  // (2026-06-08) Cloudflare 대시보드의 Git 연동 배포가 "Pages" 대신 "Workers" 플로우로
+  // 통합되어, _redirects 대신 이 파일의 assets 설정으로 SPA 라우팅 폴백을 처리한다.
+  // Worker 런타임 코드는 없음 — 순수 정적 자산(Vite 빌드 결과물 dist/)만 서빙.
+  "name": "deci-duel-web",
+  "compatibility_date": "2026-06-08",
+  "assets": {
+    "directory": "./dist",
+    // React Router 클라이언트 라우팅 지원: 정적 자산과 매치되지 않는 경로는
+    // index.html을 200으로 응답해 React Router가 처리하도록 한다.
+    // (없으면 /dashboard, /legal/terms 등 새로고침/직접 접속 시 404 발생)
+    "not_found_handling": "single-page-application"
+  }
+}
