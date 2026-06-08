@@ -484,3 +484,44 @@ a {
   gap: 12px;
   line-height: 1.7;
 }
+
+.public-page-body h2 {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.public-page-body h3 {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.public-page-body ul,
+.public-page-body ol {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.public-page-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.public-page-body th,
+.public-page-body td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.public-page-notice {
+  font-size: 13px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(109, 40, 217, 0.08);
+}

@@ -35,10 +35,22 @@
 - **문서**: `README.md`(셋업 가이드 + 1차 범위 + API 계약 참조), `.env.example`
   (`VITE_API_BASE_URL`)
 
+## 후속 처리 완료 (2026-06-08)
+- **CORS**: 서버(`deci-duel-server/src/main.ts`)에 `app.enableCors()` 추가, 허용 오리진을
+  `CORS_ALLOWED_ORIGINS` 환경변수(콤마 구분, 기본값 `http://localhost:5173`)로 분리.
+  로컬 Admin SPA dev 서버(`http://localhost:5173`) 우선 등록 완료. 운영 배포 도메인은
+  배포 시점에 서버 `.env`의 `CORS_ALLOWED_ORIGINS`에 추가하면 됨 (코드 변경 불필요)
+- **약관/개인정보 초안**: `StaticPages.tsx`의 `TermsPage`/`PrivacyPage`에 placeholder
+  대신 실제 데이터 처리 방식(Prisma User/SoloRecord/DiaryRecord 모델, OAuth 흐름,
+  마이크 dB 측정만 하고 음성 자체는 저장하지 않는다는 점 등)을 근거로 한 **초안**을 작성해
+  반영. 페이지 상단에 "[초안 — 법무 검토 전]" 배너를 명시해, 법무 검토 전 임시 게시본임을
+  분명히 함. `[회사명]`/`[담당자명]`/`[연락처]` 등은 placeholder로 남겨둠 — 실제 사업자
+  정보 확정 + 법무 검토 후 교체 필요
+
 ## 다음 작업 후보 (배포 전 / 사용 중 발견 시)
 - Cloudflare Pages 배포 파이프라인 구성 (build output: `dist/`)
-- 약관/개인정보/AdMob 본문 — 법무 검토 완료 후 `StaticPages.tsx`에 반영
-- CORS: 서버 측에서 Admin SPA 도메인 화이트리스트 추가 필요 (배포 시 서버 레포 작업)
+- 약관/개인정보 — 법무 검토 후 placeholder(`[회사명]` 등) 교체 + 초안 내용 최종 컨펌
+- AdMob 페이지 본문 — 사용자가 직접 설정 예정 (Google AdMob 앱 연결 검증 콘텐츠)
 - (필요해지면) 이벤트 통계/차트, 실시간 갱신, 유저 관리 등 — 현재는 서버 Admin API가
   조회 전용 3종뿐이라 범위 밖. 서버 API 확장이 선행되어야 함
 
