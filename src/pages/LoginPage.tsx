@@ -14,7 +14,7 @@ export function LoginPage() {
 
   if (isAuthenticated) {
     const state = location.state as LocationState | null;
-    const redirectTo = state?.from?.pathname ?? '/dashboard';
+    const redirectTo = state?.from?.pathname ?? '/admin/dashboard';
     return <Navigate to={redirectTo} replace />;
   }
 
@@ -23,7 +23,7 @@ export function LoginPage() {
     if (!code.trim() || isLoggingIn) return;
     try {
       await login(code.trim());
-      navigate('/dashboard', { replace: true });
+      navigate('/admin/dashboard', { replace: true });
     } catch {
       // 에러 메시지는 useAuth().loginError로 표시됨
     }

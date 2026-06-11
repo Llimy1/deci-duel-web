@@ -55,6 +55,291 @@ a {
   color: var(--accent);
 }
 
+/* ---- 공개 랜딩 페이지 ---- */
+.landing-page {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at top left, rgba(236, 72, 153, 0.18), transparent 34rem),
+    linear-gradient(135deg, #080511 0%, #14071d 42%, #070914 100%);
+  color: #f8fafc;
+}
+
+.landing-nav {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.landing-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.landing-brand-mark {
+  width: 34px;
+  height: 34px;
+}
+
+.landing-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.landing-links a,
+.landing-footer a {
+  color: rgba(248, 250, 252, 0.72);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.landing-links a:hover,
+.landing-footer a:hover {
+  color: #fff;
+}
+
+.landing-hero {
+  width: min(1120px, calc(100% - 40px));
+  min-height: calc(100svh - 190px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
+  align-items: center;
+  gap: 56px;
+  padding: 56px 0 72px;
+}
+
+.landing-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.landing-kicker {
+  color: #f472b6;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.landing-hero h1 {
+  color: #fff;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.02;
+  letter-spacing: 0;
+  max-width: 780px;
+}
+
+.landing-lead {
+  color: rgba(248, 250, 252, 0.76);
+  font-size: 18px;
+  line-height: 1.75;
+  max-width: 620px;
+}
+
+.landing-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.landing-button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 700;
+}
+
+.landing-button-primary {
+  background: #ec4899;
+  border-color: #ec4899;
+  color: #080511;
+}
+
+.landing-phone {
+  width: min(100%, 370px);
+  margin-left: auto;
+  border-radius: 38px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.landing-phone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  color: rgba(248, 250, 252, 0.7);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.landing-phone-header span,
+.landing-phone-header strong {
+  line-height: 1;
+}
+
+.landing-phone-header strong {
+  display: block;
+  color: #facc15;
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.landing-wave {
+  height: 190px;
+  margin: 36px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.landing-wave span {
+  width: 6px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, #22d3ee, #ec4899);
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.32);
+}
+
+.landing-result-card {
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(10, 6, 18, 0.72);
+  border: 1px solid rgba(236, 72, 153, 0.28);
+}
+
+.landing-result-card span {
+  display: block;
+  color: rgba(248, 250, 252, 0.56);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.landing-result-card strong {
+  display: block;
+  margin-top: 6px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.landing-section {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+.landing-section h2 {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 32px;
+}
+
+.landing-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.landing-feature-grid article {
+  min-height: 150px;
+  border-radius: 8px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.landing-feature-grid h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.landing-feature-grid p,
+.landing-note p {
+  color: rgba(248, 250, 252, 0.72);
+  line-height: 1.7;
+}
+
+.landing-feature-grid p {
+  margin: 0;
+}
+
+.landing-note {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 36px;
+  align-items: start;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.landing-footer {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(248, 250, 252, 0.54);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 820px) {
+  .landing-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .landing-links {
+    justify-content: flex-start;
+  }
+
+  .landing-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 32px;
+  }
+
+  .landing-phone {
+    margin: 0;
+  }
+
+  .landing-feature-grid,
+  .landing-note {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---- 공통 레이아웃 ---- */
 .page-loading {
   display: flex;

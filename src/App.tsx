@@ -1,20 +1,11 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { AuthProvider, useAuth } from './auth/AuthContext';
+import { AuthProvider } from './auth/AuthContext';
 import { AdminLayout } from './components/Layout';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { EventsPage } from './pages/EventsPage';
-import { AdMobPage, PrivacyPage, TermsPage } from './pages/StaticPages';
-
-// 루트(`/`)는 인증 상태에 따라 대시보드 또는 로그인으로 보낸다.
-function RootRedirect() {
-  const { isAuthenticated, isInitializing } = useAuth();
-  if (isInitializing) {
-    return <div className="page-loading">불러오는 중...</div>;
-  }
-  return <Navigate to={isAuthenticated ? '/dashboard' : '/login'} replace />;
-}
+import { AdMobPage, LandingPage, PrivacyPage, TermsPage } from './pages/StaticPages';
 
 function NotFoundPage() {
   return (
@@ -27,8 +18,8 @@ function NotFoundPage() {
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<RootRedirect />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/admin/login" element={<LoginPage />} />
 
       <Route
         element={
@@ -37,9 +28,14 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       >
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/events" element={<EventsPage />} />
+        <Route path="/admin/dashboard" element={<DashboardPage />} />
+        <Route path="/admin/events" element={<EventsPage />} />
       </Route>
+
+      {/* 이전 관리자 URL 호환 리다이렉트 */}
+      <Route path="/login" element={<Navigate to="/admin/login" replace />} />
+      <Route path="/dashboard" element={<Navigate to="/admin/dashboard" replace />} />
+      <Route path="/events" element={<Navigate to="/admin/events" replace />} />
 
       {/* 인증과 무관한 정적 공개 페이지 */}
       <Route path="/legal/terms" element={<TermsPage />} />

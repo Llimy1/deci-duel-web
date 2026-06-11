@@ -22,6 +22,99 @@ function PublicPage({ title, children }: { title: string; children: ReactNode })
   );
 }
 
+export function LandingPage() {
+  return (
+    <div className="landing-page">
+      <header className="landing-nav">
+        <a className="landing-brand" href="/" aria-label="DeciDuel 홈">
+          <img src="/favicon.svg" alt="" className="landing-brand-mark" />
+          <span>DeciDuel</span>
+        </a>
+        <nav className="landing-links" aria-label="공개 페이지">
+          <a href="/legal/privacy">개인정보처리방침</a>
+          <a href="/legal/terms">이용약관</a>
+          <a href="mailto:llimy.mh@gmail.com">문의</a>
+        </nav>
+      </header>
+
+      <main>
+        <section className="landing-hero">
+          <div className="landing-hero-copy">
+            <p className="landing-kicker">Voice Battle & Decibel Record</p>
+            <h1>소리로 겨루고, 기록으로 남기는 데시벨 대결 앱</h1>
+            <p className="landing-lead">
+              DeciDuel은 마이크로 순간 음량을 측정해 솔로 기록, 다이어리, 랭킹, 1:1 대결을
+              즐길 수 있는 모바일 앱입니다.
+            </p>
+            <div className="landing-actions">
+              <a className="landing-button landing-button-primary" href="/legal/privacy">
+                개인정보처리방침
+              </a>
+              <a className="landing-button" href="/legal/terms">
+                이용약관
+              </a>
+            </div>
+          </div>
+
+          <div className="landing-phone" aria-label="DeciDuel 앱 기능 미리보기">
+            <div className="landing-phone-header">
+              <span>DECIDUEL</span>
+              <strong>93.74 dB</strong>
+            </div>
+            <div className="landing-wave">
+              {Array.from({ length: 28 }).map((_, index) => (
+                <span
+                  key={index}
+                  style={{ height: `${22 + ((index * 17) % 54)}px` }}
+                />
+              ))}
+            </div>
+            <div className="landing-result-card">
+              <span>오늘의 최고 기록</span>
+              <strong>솔로 측정 완료</strong>
+            </div>
+          </div>
+        </section>
+
+        <section className="landing-section" aria-labelledby="features-title">
+          <p className="landing-kicker">Features</p>
+          <h2 id="features-title">앱에서 제공하는 기능</h2>
+          <div className="landing-feature-grid">
+            <article>
+              <h3>솔로 측정</h3>
+              <p>기기에서 실시간 데시벨을 측정하고 최고 기록을 저장합니다.</p>
+            </article>
+            <article>
+              <h3>다이어리</h3>
+              <p>측정한 순간을 날짜별 기록과 짧은 메모로 남길 수 있습니다.</p>
+            </article>
+            <article>
+              <h3>랭킹과 대결</h3>
+              <p>친구 또는 다른 사용자와 기록을 비교하며 대결할 수 있습니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section className="landing-section landing-note" aria-labelledby="privacy-title">
+          <div>
+            <p className="landing-kicker">Privacy First</p>
+            <h2 id="privacy-title">음성 파일은 서버로 전송되지 않습니다</h2>
+          </div>
+          <p>
+            DeciDuel은 음성을 녹음하거나 음성 파일 자체를 서버에 저장하지 않습니다. 기기에서
+            음량 값을 계산하고, 대결과 기록에 필요한 숫자형 dB 값만 사용합니다.
+          </p>
+        </section>
+      </main>
+
+      <footer className="landing-footer">
+        <span>© 2026 MinHyeok Lee</span>
+        <a href="/admin/login">Admin</a>
+      </footer>
+    </div>
+  );
+}
+
 export function TermsPage() {
   return (
     <PublicPage title="이용약관">

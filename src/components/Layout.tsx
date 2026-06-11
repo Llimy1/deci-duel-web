@@ -2,8 +2,8 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 
 const navItems = [
-  { to: '/dashboard', label: 'Dashboard' },
-  { to: '/events', label: 'Events' },
+  { to: '/admin/dashboard', label: 'Dashboard' },
+  { to: '/admin/events', label: 'Events' },
 ];
 
 // 인증된 admin 영역 공통 셸 (상단 네비 + 로그아웃)
