@@ -10,6 +10,7 @@
 import type { ReactNode } from 'react';
 
 const LAST_UPDATED = '2026-06-08';
+const APP_DOWNLOAD_URL = 'https://apps.apple.com/kr/app/deci-duel/id6778819304';
 
 function PublicPage({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -47,7 +48,15 @@ export function LandingPage() {
               즐길 수 있는 모바일 앱입니다.
             </p>
             <div className="landing-actions">
-              <a className="landing-button landing-button-primary" href="/legal/privacy">
+              <a
+                className="landing-button landing-button-primary"
+                href={APP_DOWNLOAD_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                App Store에서 다운로드
+              </a>
+              <a className="landing-button" href="/legal/privacy">
                 개인정보처리방침
               </a>
               <a className="landing-button" href="/legal/terms">

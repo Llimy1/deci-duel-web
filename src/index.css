@@ -256,6 +256,10 @@ a {
   color: #fff;
   margin-top: 10px;
   font-size: 32px;
+  line-height: 1.25;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .landing-feature-grid {
@@ -288,6 +292,11 @@ a {
 .landing-note p {
   color: rgba(248, 250, 252, 0.72);
   line-height: 1.7;
+}
+
+.landing-note p {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .landing-feature-grid p {
