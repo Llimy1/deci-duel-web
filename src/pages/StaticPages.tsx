@@ -9,7 +9,8 @@
 // 돌아가는 내비게이션은 의도적으로 두지 않았다 (← DeciDuel 링크 제거, 2026-06-08).
 import type { ReactNode } from 'react';
 
-const LAST_UPDATED = '2026-06-08';
+const TERMS_LAST_UPDATED = '2026-06-08';
+const PRIVACY_LAST_UPDATED = '2026-06-15';
 const APP_DOWNLOAD_URL = 'https://apps.apple.com/kr/app/deci-duel/id6778819304';
 
 function PublicPage({ title, children }: { title: string; children: ReactNode }) {
@@ -128,7 +129,7 @@ export function LandingPage() {
 export function TermsPage() {
   return (
     <PublicPage title="이용약관">
-      <p className="muted">시행일: {LAST_UPDATED}</p>
+      <p className="muted">시행일: {TERMS_LAST_UPDATED}</p>
 
       <h2>제1조 (목적)</h2>
       <p>
@@ -247,7 +248,7 @@ export function TermsPage() {
       </p>
 
       <h2>부칙</h2>
-      <p>이 약관은 {LAST_UPDATED}부터 적용됩니다.</p>
+      <p>이 약관은 {TERMS_LAST_UPDATED}부터 적용됩니다.</p>
     </PublicPage>
   );
 }
@@ -255,7 +256,7 @@ export function TermsPage() {
 export function PrivacyPage() {
   return (
     <PublicPage title="개인정보처리방침">
-      <p className="muted">시행일: {LAST_UPDATED}</p>
+      <p className="muted">시행일: {PRIVACY_LAST_UPDATED}</p>
 
       <p>
         DeciDuel 서비스 운영자 Llimy1(이하 “운영자”)는 「개인정보 보호법」 등 관련 법령을
@@ -425,7 +426,7 @@ export function PrivacyPage() {
       </p>
 
       <h2>부칙</h2>
-      <p>이 방침은 {LAST_UPDATED}부터 적용됩니다.</p>
+      <p>이 방침은 {PRIVACY_LAST_UPDATED}부터 적용됩니다.</p>
     </PublicPage>
   );
 }
